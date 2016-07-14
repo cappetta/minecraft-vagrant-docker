@@ -1,0 +1,28 @@
+# vagrant.yaml
+# @author: cappetta
+---
+  - name:       ubuntu-desktop
+    box:        ubuntu/trusty64
+    forwards:
+      - port1:
+        host:   8080
+        guest:  25565
+        id:     minecraft1
+      - port2:
+        host:   8081
+        guest:  25565
+        id:     minecraft2
+      - port3:
+        host:   2224
+        guest:  22
+        id:     ssh
+        
+    ram:        "2048"
+    vram:       "30"
+    cpu:        "4"
+    initScript:
+#      - hdd:
+#        init: "./puppet/create_extra_hdd.sh"
+      - puppet:
+        init: "./puppet/ubuntu_puppet_bootstrap_install.sh"
+    gui:        true
