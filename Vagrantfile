@@ -70,7 +70,7 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--vram",    node["vram"]]
       vb.customize ["modifyvm", :id, "--name",    node["name"]]
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
-     # vb.customize ["storagectl", :id, "--name", "guestAdditions", "--add", "ide"]
+      vb.customize ["storagectl", :id, "--name", "guestAdditions", "--add", "ide"]
       vb.customize [
                  'storageattach', :id,
                  "--storagectl", "guestAdditions",
